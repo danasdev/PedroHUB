@@ -304,7 +304,7 @@
     var box = $('#feed');
     if (!list.length) {
       box.innerHTML = '<div class="glass pad stack"><h3>' + (query ? 'Nada encontrado para “' + esc(query) + '”' : EMPTY[tab]) + '</h3><p class="muted">' +
-        (query ? 'Tente outra palavra, ou faça a pergunta para a turma.' : 'Que tal ser a primeira pessoa a publicar?') + '</p></div>';
+        '' + '</p></div>';
       return;
     }
     box.innerHTML = list.map(function (p) {
@@ -313,8 +313,7 @@
         : p.state === 'rev'
           ? '<span class="chip acc"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Em revisão</span>'
           : '<span class="chip ok"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>' + (p.kind === 'duvida' ? 'Respondida' : 'Publicado') + '</span>';
-      return '<article class="glass post"><div class="between wrap"><span class="chip"><svg class="i" aria-hidden="true"><use href="' + ICON[p.kind] + '"/></svg>' + esc(p.topic) + '</span>' + badge + '</div>' +
-        '<h3>' + esc(p.t) + '</h3><p class="small muted">por ' + esc(p.by) + ' · ' + esc(p.meta) + '</p></article>';
+      return '<article class="glass post"><div class="between wrap"><span class="chip"><svg class="i" aria-hidden="true"><use href="' + ICON[p.kind] + '"/></svg>' + esc(p.topic) + '</span>' + badge + '</div>' + '<h3>' + esc(p.t) + '</h3></article>';
     }).join('');
   }
   var tabs = $$('[role=tab]');

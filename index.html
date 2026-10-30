@@ -87,308 +87,204 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
 
     <main id="main" tabindex="-1">
 
-      <!-- ============ 1. BOAS-VINDAS ============ -->
+      <!-- 1. BOAS-VINDAS -->
       <section data-view="main" data-title="Estude no seu ritmo">
         <div class="land-nav">
           <a class="brand" href="#/"><span class="mark"><svg class="i" aria-hidden="true" style="width:24px;height:24px;stroke-width:2.6"><use href="#i-logo"/></svg></span>BrainHub</a>
-          <div class="row wrap">
-            <button type="button" class="btn" data-open-prefs aria-haspopup="dialog"><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg>Personalizar</button>
-            <a class="btn primary" href="#/inicio">Entrar</a>
+          <div class="row">
+            <button type="button" class="btn icon" data-open-prefs aria-haspopup="dialog" aria-label="Personalizar tela"><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg></button>
+            <a class="btn" href="#/inicio">Entrar</a>
           </div>
         </div>
 
         <div class="hero">
           <div>
-            <p class="eyebrow">Comunidade de estudos · TEA e neurodivergência</p>
-            <h1 style="margin-top:.8rem">Estude tecnologia <em>no seu ritmo</em>, com a tela do seu jeito.</h1>
-            <p class="lead">Aulas curtas, passos claros e uma turma que estuda no mesmo nível que você. Tire dúvidas, publique o que aprendeu e ajuste cores, fonte e estímulos para ficar confortável.</p>
-            <div class="cta">
-              <a class="btn primary lg" href="#/cadastro">Criar conta grátis <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-              <a class="btn lg" href="#/inicio">Já tenho conta</a>
-            </div>
+            <h1>Estude no seu ritmo.</h1>
+            <p class="lead">Comunidade de estudos feita para você.</p>
+            <div class="cta"><a class="btn primary lg" href="#/cadastro">Começar <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
           </div>
-
           <div class="compose" aria-hidden="true">
-            <div class="glass c-lesson stack" style="gap:.7rem">
-              <span class="eyebrow">Continue de onde parou</span>
-              <h3>HTML básico · Links</h3>
-              <p class="small muted">Lição 3 de 6 · 10 min</p>
-              <div class="meter"><i style="width:33%"></i></div>
-            </div>
-            <div class="glass c-ring">
-              <div class="ring" style="--p:60"><svg viewBox="0 0 76 76"><circle class="bgc" cx="38" cy="38" r="32"/><circle class="fg" cx="38" cy="38" r="32"/></svg><b>60%</b></div>
-              <span class="small muted">Nível 2</span>
-            </div>
-            <div class="glass c-bars" style="grid-column:span 6">
-              <span class="eyebrow">Seu ritmo</span>
-              <div class="bars"><i style="height:30%"></i><i style="height:48%"></i><i style="height:40%"></i><i class="on" style="height:92%"></i><i style="height:62%"></i><i style="height:35%"></i><i style="height:25%"></i></div>
-            </div></div>
+            <div class="glass c-lesson stack" style="gap:.7rem"><h3>HTML · Links</h3><div class="meter"><i style="width:33%"></i></div></div>
+            <div class="glass c-ring"><div class="ring" style="--p:60"><svg viewBox="0 0 76 76"><circle class="bgc" cx="38" cy="38" r="32"/><circle class="fg" cx="38" cy="38" r="32"/></svg><b>60%</b></div></div>
+            <div class="glass c-bars" style="grid-column:span 6"><div class="bars"><i style="height:30%"></i><i style="height:48%"></i><i style="height:40%"></i><i class="on" style="height:92%"></i><i style="height:62%"></i><i style="height:35%"></i><i style="height:25%"></i></div></div>
+          </div>
         </div>
 
-        <section class="band" aria-labelledby="h-feat">
-          <div class="head"><p class="eyebrow">Como funciona</p><h2 id="h-feat">Uma plataforma que respeita o seu jeito de aprender.</h2></div>
+        <section class="band" aria-label="O que você pode fazer">
           <div class="grid g3">
-            <article class="glass pad feature"><div class="ico"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg></div><h3>Assista e reveja</h3><p class="muted">Aulas em vídeo curtas, com legenda, transcrição em texto e controle de velocidade. Volte quantas vezes quiser.</p></article>
-            <article class="glass pad feature"><div class="ico"><svg class="i" aria-hidden="true"><use href="#i-msg"/></svg></div><h3>Tire dúvidas sem medo</h3><p class="muted">Pergunte à turma do seu nível. Sem julgamento, sem respostas automáticas — pessoas reais ajudando.</p></article>
-            <article class="glass pad feature"><div class="ico"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg></div><h3>Ensine o que sabe</h3><p class="muted">Publique aulas, resumos e exercícios. Explicar é uma das melhores formas de fixar o conteúdo.</p></article>
+            <div class="glass tile"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg></span><h3>Assistir</h3></div>
+            <div class="glass tile"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-msg"/></svg></span><h3>Perguntar</h3></div>
+            <div class="glass tile"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg></span><h3>Ensinar</h3></div>
           </div>
         </section>
 
-        <section class="band" aria-labelledby="h-pers">
-          <div class="head"><p class="eyebrow">Acessibilidade de verdade</p><h2 id="h-pers">Escolha como a tela fica. Experimente agora.</h2><p class="muted">Cores, fonte, tamanho, espaçamento, animações e transparência. Tudo fica salvo no seu navegador e vale para o site inteiro.</p></div>
-          <fieldset class="group" style="margin-bottom:1.5rem"><legend class="sr">Escolher tema</legend>
-            <div class="themes" data-theme-picker></div>
-          </fieldset>
-          <button type="button" class="btn primary lg" data-open-prefs aria-haspopup="dialog"><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg>Abrir todas as opções</button>
+        <section class="band" aria-label="Escolher tema">
+          <fieldset class="group"><legend class="sr">Tema</legend><div class="themes" data-theme-picker></div></fieldset>
         </section>
-
-        <footer class="foot"><span>© BrainHub · Feito com cuidado, junto com a comunidade.</span><span>Sem rastreadores · Preferências salvas só no seu dispositivo</span></footer>
       </section>
 
-      <!-- ============ 2. CADASTRO ============ -->
+      <!-- 2. CADASTRO -->
       <section data-view="cadastro" data-title="Criar conta" hidden>
         <div class="auth">
           <div class="glass">
-            <div class="between"><a class="btn sm" href="#/"><svg class="i" aria-hidden="true"><use href="#i-back"/></svg>Voltar</a><span class="small muted" id="stepLabel">Passo 1 de 2</span></div>
-            <div class="steps" aria-hidden="true"><i class="on" id="s1"></i><i id="s2"></i></div>
+            <div class="between"><a class="btn icon" href="#/" aria-label="Voltar"><svg class="i" aria-hidden="true"><use href="#i-back"/></svg></a><span class="sr" id="stepLabel">Passo 1 de 2</span><div class="steps" aria-hidden="true" style="width:90px"><i class="on" id="s1"></i><i id="s2"></i></div></div>
 
             <form id="step1" class="stack" novalidate>
               <h1 style="font-size:2rem">Criar conta</h1>
-              <div class="field"><label for="cad-nome">Nome</label><input id="cad-nome" type="text" autocomplete="given-name" placeholder="Como quer ser chamado"></div>
-              <div class="field"><label for="cad-email">E-mail</label><input id="cad-email" type="email" autocomplete="email" placeholder="nome@exemplo.com"></div>
-              <div class="field"><label for="cad-senha">Senha</label><input id="cad-senha" type="password" autocomplete="new-password" aria-describedby="senha-h"><span class="hint" id="senha-h">Use pelo menos 8 caracteres.</span></div>
-              <fieldset class="group glass" style="padding:1rem 1.2rem;border-radius:var(--r-sm)">
-                <legend>Como você prefere ver a tela?</legend>
-                <label class="switch"><span class="t">Alto contraste</span><input type="checkbox" data-pref-switch="contrast"><span class="track"></span></label>
-                <label class="switch"><span class="t">Texto ampliado</span><input type="checkbox" data-pref-switch="bigtext"><span class="track"></span></label>
-                <label class="switch"><span class="t">Poucos estímulos<small>Sem animações e sem desfoque</small></span><input type="checkbox" data-pref-switch="calm"><span class="track"></span></label>
-                <p class="small muted">Você muda isso quando quiser em “Personalizar tela”.</p>
-              </fieldset>
+              <div class="field"><label for="cad-nome">Nome</label><input id="cad-nome" type="text" autocomplete="given-name"></div>
+              <div class="field"><label for="cad-email">E-mail</label><input id="cad-email" type="email" autocomplete="email"></div>
+              <div class="field"><label for="cad-senha">Senha</label><input id="cad-senha" type="password" autocomplete="new-password"></div>
               <button type="submit" class="btn primary lg block">Continuar</button>
             </form>
 
             <form id="step2" class="stack" hidden>
-              <div><h1 style="font-size:2rem">Qual é o seu nível em tecnologia?</h1><p class="muted" style="margin-top:.4rem">Escolha uma opção. Não existe resposta errada.</p></div>
-              <fieldset class="stack" style="border:0"><legend class="sr">Nível de conhecimento</legend>
-                <label class="choice"><input type="radio" name="nivel" checked><span><b>Iniciante</b><span class="muted">Nunca programei.</span></span></label>
-                <label class="choice"><input type="radio" name="nivel"><span><b>Intermediário</b><span class="muted">Já fiz páginas ou programas simples.</span></span></label>
-                <label class="choice"><input type="radio" name="nivel"><span><b>Avançado</b><span class="muted">Já desenvolvi projetos completos.</span></span></label>
+              <h1 style="font-size:2rem">Seu nível</h1>
+              <fieldset class="stack" style="border:0"><legend class="sr">Nível</legend>
+                <label class="choice"><input type="radio" name="nivel" checked><b>Iniciante</b></label>
+                <label class="choice"><input type="radio" name="nivel"><b>Intermediário</b></label>
+                <label class="choice"><input type="radio" name="nivel"><b>Avançado</b></label>
               </fieldset>
-              <p class="review">Você entra em uma turma com pessoas do mesmo nível. Dá para trocar de turma depois.</p>
-              <button type="submit" class="btn primary lg block">Entrar na turma</button>
+              <button type="submit" class="btn primary lg block">Entrar</button>
             </form>
           </div>
         </div>
       </section>
 
-      <!-- ============ 3. INÍCIO ============ -->
+      <!-- 3. INÍCIO -->
       <section data-view="inicio" data-title="Início" hidden>
         <div class="page">
-          <header><p class="eyebrow">Turma Iniciantes</p><h1>Olá, Ana</h1><p class="muted">Uma coisa de cada vez. Hoje é só a lição de Links.</p></header>
-
+          <header><h1>Olá, Ana</h1></header>
           <div class="glass resume">
             <div class="ring" style="--p:33"><svg viewBox="0 0 96 96"><circle class="bgc" cx="48" cy="48" r="40"/><circle class="fg" cx="48" cy="48" r="40"/></svg><b>2/6</b></div>
-            <div class="stack" style="gap:.4rem">
-              <span class="eyebrow">Continue de onde parou</span>
-              <h2>Trilha: HTML básico</h2>
-              <p class="muted">Lição 3 · Links · cerca de 10 minutos</p>
-            </div>
-            <a class="btn primary lg" href="#/licao"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Continuar lição</a>
+            <div class="stack" style="gap:.2rem"><h2>HTML básico</h2><p class="muted">Lição 3 · Links</p></div>
+            <a class="btn primary lg" href="#/licao"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Continuar</a>
           </div>
-
           <div class="grid g2">
-              <section class="glass pad stack" aria-labelledby="h-xp">
-                <div class="between"><h2 id="h-xp">Nível 2</h2><span class="muted small">120 de 200 XP</span></div>
-                <div class="meter" role="img" aria-label="120 de 200 pontos de experiência"><i style="width:60%"></i></div>
-                <a class="btn sm" href="#/perfil">Ver meu progresso</a>
-              </section>
-              <section class="glass pad stack" aria-labelledby="h-duv">
-                <h2 id="h-duv">Dúvidas da turma</h2>
-                <p class="muted">1 pergunta esperando resposta.</p>
-                <a class="btn sm" href="#/comunidade">Abrir a comunidade</a>
-              </section>
+            <a class="glass tile link" href="#/perfil" aria-label="Meu progresso: 120 XP"><span class="big-n">120<small> XP</small></span><div class="meter" aria-hidden="true"><i style="width:60%"></i></div></a>
+            <a class="glass tile link" href="#/comunidade" aria-label="Comunidade: 1 dúvida nova"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg></span><h3>1 dúvida nova</h3></a>
           </div>
         </div>
       </section>
 
-      <!-- ============ 4. TRILHAS ============ -->
-      <section data-view="trilhas" data-title="Trilhas e aulas" hidden>
+      <!-- 4. TRILHAS -->
+      <section data-view="trilhas" data-title="Trilhas" hidden>
         <div class="page">
-          <header><p class="eyebrow">Trilhas</p><h1>Trilhas e aulas</h1><p class="muted">Cada trilha é uma sequência curta. As próximas abrem quando você termina a anterior.</p></header>
-
-          <section class="glass pad stack" aria-labelledby="h-t1">
-            <div class="between wrap"><div><h2 id="h-t1">HTML básico</h2><p class="muted small">2 de 6 lições concluídas</p></div><span class="chip acc">Em andamento</span></div>
-            <div class="meter" role="img" aria-label="2 de 6 lições concluídas"><i style="width:33%"></i></div>
-            <ol class="lessons">
-              <li class="lesson done"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><div class="grow"><b>1. Estrutura da página</b><p class="small muted">Vídeo · 5 min</p></div><span class="chip ok">Concluída</span></li>
-              <li class="lesson done"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><div class="grow"><b>2. Títulos e parágrafos</b><p class="small muted">Vídeo · 6 min</p></div><span class="chip ok">Concluída</span></li>
-              <li class="lesson now"><span class="n">3</span><div class="grow"><b>3. Links</b><p class="small muted">Vídeo · 6 min · passo 2 de 4</p></div><a class="btn primary sm" href="#/licao">Continuar</a></li>
-              <li class="lesson lock"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span><div class="grow"><b>4. Imagens</b><p class="small">Abre depois da lição 3</p></div></li>
-              <li class="lesson lock"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span><div class="grow"><b>5. Atributos</b><p class="small">Abre depois da lição 4</p></div></li>
-              <li class="lesson lock"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span><div class="grow"><b>6. Estilos com CSS</b><p class="small">Abre depois da lição 5</p></div></li>
-            </ol>
-          </section>
-
-          <h2 class="distract" style="padding:0 .25rem">Outras trilhas</h2>
-          <div class="grid g3 distract">
-            <article class="glass pad track-card"><h3>Lógica de programação</h3><p class="muted small">Pensar em passos: sequência, decisão e repetição. 5 lições.</p><div class="meter"><i style="width:0"></i></div><button type="button" class="btn sm" data-toast="Trilha adicionada à sua lista.">Começar</button></article>
-            <article class="glass pad track-card"><h3>CSS básico</h3><p class="muted small">Cores, fontes e espaçamento. 5 lições.</p><div class="meter"><i style="width:0"></i></div><button type="button" class="btn sm" data-toast="Trilha adicionada à sua lista.">Começar</button></article>
-            <article class="glass pad track-card locked"><span class="chip"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Bloqueada</span><h3>JavaScript: primeiros passos</h3><p class="muted small">Abre depois de HTML básico.</p><div class="meter"><i style="width:0"></i></div></article>
-          </div>
+          <header><h1>HTML básico</h1></header>
+          <div class="meter" role="img" aria-label="2 de 6 lições concluídas"><i style="width:33%"></i></div>
+          <ol class="lessons">
+            <li class="lesson done"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><b class="grow">Estrutura da página</b><span class="sr">Concluída</span></li>
+            <li class="lesson done"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><b class="grow">Títulos e parágrafos</b><span class="sr">Concluída</span></li>
+            <li class="lesson now"><span class="n">3</span><b class="grow">Links</b><a class="btn primary sm" href="#/licao">Continuar</a></li>
+            <li class="lesson lock"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span><b class="grow">Imagens</b><span class="sr">Bloqueada</span></li>
+            <li class="lesson lock"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span><b class="grow">Atributos</b><span class="sr">Bloqueada</span></li>
+            <li class="lesson lock"><span class="n"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span><b class="grow">Estilos com CSS</b><span class="sr">Bloqueada</span></li>
+          </ol>
         </div>
       </section>
 
-      <!-- ============ 5. LIÇÃO ============ -->
-      <section data-view="licao" data-title="Lição 3 · Links" hidden>
+      <!-- 5. LIÇÃO -->
+      <section data-view="licao" data-title="Lição · Links" hidden>
         <div class="page">
           <header>
-            <a class="btn sm" style="align-self:flex-start" href="#/trilhas"><svg class="i" aria-hidden="true"><use href="#i-back"/></svg>Voltar à trilha</a>
-            <p class="eyebrow" style="margin-top:.6rem">HTML básico · Passo 2 de 4</p><h1>Lição 3 · Links</h1>
+            <div class="row"><a class="btn icon" href="#/trilhas" aria-label="Voltar à trilha"><svg class="i" aria-hidden="true"><use href="#i-back"/></svg></a><h1 style="font-size:2rem">Links</h1></div>
           </header>
-          <div class="steps" style="grid-template-columns:repeat(4,1fr)" role="img" aria-label="Passo 2 de 4"><i class="on"></i><i class="on"></i><i></i><i></i></div>
-
           <div class="grid g-main">
             <div class="stack">
-              <div class="player" id="player" aria-label="Vídeo da aula: Links em HTML">
+              <div class="player" id="player" aria-label="Vídeo da aula: Links">
                 <button type="button" class="big" id="playBig" aria-label="Reproduzir vídeo"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg></button>
                 <div class="caption" id="cap" hidden>Um link leva a pessoa para outra página.</div>
                 <div class="bar">
                   <button type="button" class="btn icon sm" id="playSmall" aria-label="Reproduzir"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg></button>
                   <span class="small" id="tcur">0:00</span>
                   <div class="meter" role="progressbar" aria-label="Progresso do vídeo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="vmeter"><i style="width:0"></i></div>
-                  <span class="small">6:00</span>
                   <button type="button" class="btn icon sm" id="ccBtn" aria-pressed="false" aria-label="Legendas"><svg class="i" aria-hidden="true"><use href="#i-cc"/></svg></button>
                   <label class="sr" for="speed">Velocidade</label>
                   <select id="speed"><option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option></select>
                 </div>
               </div>
-
-              <section class="glass pad stack" aria-labelledby="h-leia">
-                <p class="eyebrow">Leia</p>
-                <h2 id="h-leia" class="sr">Resumo da lição</h2>
-                <p style="font-size:1.1rem">Um link leva a pessoa para outra página.</p>
-                <p style="font-size:1.1rem">Ele é feito com a tag <code>a</code>. O endereço fica no atributo <code>href</code>.</p>
-                <pre><code>&lt;a href="contato.html"&gt;Contato&lt;/a&gt;</code></pre>
-                <button type="button" class="btn sm" id="trBtn" aria-expanded="false" aria-controls="tr" style="align-self:flex-start"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg>Ver transcrição do vídeo</button>
-                <div class="transcript" id="tr" hidden tabindex="0" role="region" aria-label="Transcrição">
-                  <p>Oi! Hoje vamos aprender a criar links.</p>
-                  <p>Um link leva a pessoa para outra página. Para criar, usamos a tag a.</p>
-                  <p>O endereço do destino fica dentro do atributo href. Por exemplo: href igual a contato ponto html.</p>
-                  <p>O texto entre as tags é o que a pessoa clica. Escolha um texto que explique para onde o link vai.</p>
-                </div>
-              </section>
+              <pre><code>&lt;a href="contato.html"&gt;Contato&lt;/a&gt;</code></pre>
+              <button type="button" class="btn sm" id="trBtn" aria-expanded="false" aria-controls="tr" style="align-self:flex-start"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg>Transcrição</button>
+              <div class="transcript glass pad" id="tr" hidden tabindex="0" role="region" aria-label="Transcrição">
+                <p>Um link leva a pessoa para outra página. Usamos a tag a, e o endereço fica no atributo href.</p>
+              </div>
             </div>
 
             <div class="stack">
               <section class="glass pad stack" aria-labelledby="h-ex">
-                <p class="eyebrow">Agora é com você</p>
-                <h2 id="h-ex" style="font-size:1.2rem">Qual atributo guarda o endereço do link?</h2>
+                <h2 id="h-ex" style="font-size:1.2rem">Qual atributo guarda o endereço?</h2>
                 <div class="opts" id="opts">
                   <button type="button" class="btn" data-ans="src" aria-pressed="false">src</button>
                   <button type="button" class="btn" data-ans="href" aria-pressed="false">href</button>
                   <button type="button" class="btn" data-ans="alt" aria-pressed="false">alt</button>
                 </div>
-                <p class="small muted" id="fb-none">Toque em uma opção. Você pode tentar quantas vezes quiser.</p>
-                <div class="fb good" id="fb-good" role="status" hidden><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><div><b>Isso mesmo.</b> O href guarda o endereço. Você ganhou 10 XP.</div></div>
-                <div class="fb bad" id="fb-bad" role="status" hidden><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><b>Ainda não.</b> Você marcou <span id="fb-pick"></span>. Dica: olhe o exemplo ao lado e tente de novo.</div></div>
+                <p class="sr" id="fb-none">Escolha uma opção.</p>
+                <div class="fb good" id="fb-good" role="status" hidden><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><div><b>Isso mesmo! +10 XP</b></div></div>
+                <div class="fb bad" id="fb-bad" role="status" hidden><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><b>Tente de novo.</b><span class="sr"> Você marcou <span id="fb-pick"></span>.</span></div></div>
               </section>
-              <a class="btn primary lg block" href="#/trilhas" data-toast="Passo concluído. Bom trabalho!">Próximo passo <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-              <a class="btn block" href="#/comunidade"><svg class="i" aria-hidden="true"><use href="#i-msg"/></svg>Tenho uma dúvida: perguntar à turma</a>
+              <a class="btn primary lg block" href="#/trilhas" data-toast="Passo concluído!">Próximo <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn block" href="#/comunidade"><svg class="i" aria-hidden="true"><use href="#i-msg"/></svg>Perguntar</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ============ 6. COMUNIDADE ============ -->
+      <!-- 6. COMUNIDADE -->
       <section data-view="comunidade" data-title="Comunidade" hidden>
         <div class="page">
           <header>
-            <div class="between wrap"><div><p class="eyebrow">Turma Iniciantes</p><h1>Comunidade</h1></div>
-              <div class="row wrap"><button type="button" class="btn" id="btnAsk" aria-expanded="false" aria-controls="askBox"><svg class="i" aria-hidden="true"><use href="#i-msg"/></svg>Fazer uma pergunta</button><a class="btn primary" href="#/publicar"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Publicar conteúdo</a></div></div>
-            <p class="muted" style="margin-top:.4rem">Aqui quem responde são pessoas da turma. Não há respostas automáticas.</p>
+            <div class="between wrap"><h1>Comunidade</h1>
+              <div class="row"><button type="button" class="btn" id="btnAsk" aria-expanded="false" aria-controls="askBox"><svg class="i" aria-hidden="true"><use href="#i-msg"/></svg>Perguntar</button><a class="btn primary" href="#/publicar"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>Publicar</a></div></div>
           </header>
 
           <form class="glass ask" id="askBox" hidden novalidate>
-            <h2>Nova pergunta</h2>
-            <div class="grid g2">
-              <div class="field"><label for="ask-t">Sua dúvida, em uma frase</label><input id="ask-t" type="text" placeholder="Ex.: Como eu centralizo um texto?"></div>
-              <div class="field"><label for="ask-top">Tópico</label><select id="ask-top"><option>HTML</option><option>CSS</option><option>Lógica</option><option>Outro</option></select></div>
-            </div>
-            <div class="field"><label for="ask-d">Detalhes (opcional)</label><textarea id="ask-d" style="min-height:6rem" placeholder="O que você já tentou?"></textarea><span class="hint">Frases curtas ajudam a turma a entender.</span></div>
-            <div class="row wrap"><button type="submit" class="btn primary">Enviar pergunta</button><button type="button" class="btn" id="askCancel">Cancelar</button></div>
+            <div class="field"><label for="ask-t">Sua dúvida</label><input id="ask-t" type="text"></div>
+            <div class="field"><label for="ask-top">Tópico</label><select id="ask-top"><option>HTML</option><option>CSS</option><option>Lógica</option><option>Outro</option></select></div>
+            <textarea id="ask-d" hidden></textarea>
+            <div class="row"><button type="submit" class="btn primary">Enviar</button><button type="button" class="btn" id="askCancel">Cancelar</button></div>
           </form>
 
           <div class="tabs" role="tablist" aria-label="Tipo de conteúdo">
             <button type="button" role="tab" id="tab-duv" aria-selected="true" aria-controls="feed" data-tab="duvida">Dúvidas</button>
-            <button type="button" role="tab" id="tab-aul" aria-selected="false" aria-controls="feed" data-tab="aula" tabindex="-1">Aulas da turma</button>
+            <button type="button" role="tab" id="tab-aul" aria-selected="false" aria-controls="feed" data-tab="aula" tabindex="-1">Aulas</button>
             <button type="button" role="tab" id="tab-res" aria-selected="false" aria-controls="feed" data-tab="resumo" tabindex="-1">Resumos</button>
           </div>
           <div class="stack" id="feed" role="tabpanel" aria-labelledby="tab-duv" tabindex="0"></div>
         </div>
       </section>
 
-      <!-- ============ 7. PUBLICAR ============ -->
-      <section data-view="publicar" data-title="Publicar conteúdo" hidden>
-        <div class="page">
-          <header>
-            <a class="btn sm" style="align-self:flex-start" href="#/comunidade"><svg class="i" aria-hidden="true"><use href="#i-back"/></svg>Voltar</a>
-            <h1 style="margin-top:.6rem">Publicar um conteúdo</h1><p class="muted">Explique do seu jeito. A turma aprende com você.</p>
-          </header>
-          <div class="grid g-main">
-            <form class="glass pad stack" id="pubForm" novalidate>
-              <fieldset class="group"><legend>O que você quer publicar?</legend>
-                <div class="kinds">
-                  <label class="choice" style="min-height:0"><input type="radio" name="tipo" value="aula" checked><span><b>Aula em vídeo</b><span class="muted small">Grave ou envie</span></span></label>
-                  <label class="choice" style="min-height:0"><input type="radio" name="tipo" value="resumo"><span><b>Resumo</b><span class="muted small">Texto curto</span></span></label>
-                  <label class="choice" style="min-height:0"><input type="radio" name="tipo" value="exercicio"><span><b>Exercício</b><span class="muted small">Com resposta</span></span></label>
-                </div>
-              </fieldset>
-              <div class="field"><label for="pub-t">Título</label><input id="pub-t" type="text" placeholder="Ex.: Como criar um link"></div>
-              <div class="grid g2">
-                <div class="field"><label for="pub-tr">Trilha</label><select id="pub-tr"><option>HTML básico</option><option>CSS básico</option><option>Lógica de programação</option></select></div>
-                <div class="field" id="fileField"><label for="pub-f">Arquivo de vídeo</label><input id="pub-f" type="text" placeholder="Cole o link do vídeo" aria-describedby="f-h"><span class="hint" id="f-h">YouTube, Drive ou outro link público.</span></div>
+      <!-- 7. PUBLICAR -->
+      <section data-view="publicar" data-title="Publicar" hidden>
+        <div class="page" style="max-width:720px">
+          <header><div class="row"><a class="btn icon" href="#/comunidade" aria-label="Voltar"><svg class="i" aria-hidden="true"><use href="#i-back"/></svg></a><h1 style="font-size:2rem">Publicar</h1></div></header>
+          <form class="glass pad stack" id="pubForm" novalidate>
+            <fieldset class="group"><legend class="sr">Tipo</legend>
+              <div class="kinds">
+                <label class="choice kind"><input type="radio" name="tipo" value="aula" checked><svg class="i" aria-hidden="true"><use href="#i-video"/></svg><b>Aula</b></label>
+                <label class="choice kind"><input type="radio" name="tipo" value="resumo"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg><b>Resumo</b></label>
+                <label class="choice kind"><input type="radio" name="tipo" value="exercicio"><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg><b>Exercício</b></label>
               </div>
-              <div class="field"><label for="pub-x">Explicação</label><textarea id="pub-x" placeholder="Escreva aqui a sua explicação."></textarea><span class="hint">Use frases curtas. Um assunto por publicação.</span></div>
-              <label class="switch"><span class="t">Incluir transcrição ou legenda<small>Ajuda quem prefere ler ou assiste sem som.</small></span><input type="checkbox" checked><span class="track"></span></label>
-              <button type="submit" class="btn primary lg">Enviar para revisão</button>
-            </form>
-            <aside class="stack">
-              <div class="glass pad stack"><h2 style="font-size:1.2rem">Como funciona a revisão</h2>
-                <ol class="stack small muted" style="gap:.6rem;list-style:decimal;padding-left:1.2rem"><li>Uma pessoa da equipe lê o conteúdo.</li><li>Se estiver claro e respeitoso, ele aparece para a turma.</li><li>Ao ser aprovado, você ganha <b style="color:var(--text)">20 XP</b>.</li></ol></div>
-              <div class="glass pad stack distract"><h2 style="font-size:1.2rem">Dicas para ficar claro</h2>
-                <ul class="stack small muted" style="gap:.5rem"><li>• Diga no início o que a pessoa vai aprender.</li><li>• Evite gírias e ironias; seja literal.</li><li>• Mostre exemplos passo a passo.</li></ul></div>
-            </aside>
-          </div>
+            </fieldset>
+            <div class="field"><label for="pub-t">Título</label><input id="pub-t" type="text"></div>
+            <div class="field"><label for="pub-tr">Trilha</label><select id="pub-tr"><option>HTML básico</option><option>CSS básico</option><option>Lógica de programação</option></select></div>
+            <div class="field" id="fileField" hidden><label for="pub-f">Link</label><input id="pub-f" type="text"></div>
+            <div class="field"><label for="pub-x">Explicação</label><textarea id="pub-x" style="min-height:7rem"></textarea></div>
+            <button type="submit" class="btn primary lg">Enviar</button>
+          </form>
         </div>
       </section>
 
-      <!-- ============ 8. PERFIL ============ -->
-      <section data-view="perfil" data-title="Meu perfil" hidden>
+      <!-- 8. PERFIL -->
+      <section data-view="perfil" data-title="Perfil" hidden>
         <div class="page">
-          <header><p class="eyebrow">Ana · Turma Iniciantes</p><h1>Perfil e progresso</h1></header>
+          <header><h1>Ana</h1></header>
           <div class="grid g3">
-            <div class="glass pad stat"><span class="muted small">Nível</span><b>2</b><span class="small muted">Faltam 80 XP para o 3</span></div>
-            <div class="glass pad stat"><span class="muted small">Lições concluídas</span><b>2 / 6</b><span class="small muted">Trilha HTML básico</span></div>
-            <div class="glass pad stat"><span class="muted small">Respostas dadas</span><b>1</b><span class="small muted">Obrigada por ajudar!</span></div>
+            <div class="glass tile"><span class="big-n">2</span><span class="muted">Nível</span></div>
+            <div class="glass tile"><span class="big-n">2<small>/6</small></span><span class="muted">Lições</span></div>
+            <div class="glass tile"><span class="big-n">1</span><span class="muted">Respostas</span></div>
           </div>
-          <div class="grid g2">
-            <section class="glass pad stack" aria-labelledby="h-xp2">
-              <div class="between"><h2 id="h-xp2">Experiência</h2><span class="muted small">120 de 200 XP</span></div>
-              <div class="meter" role="img" aria-label="120 de 200 pontos de experiência"><i style="width:60%"></i></div>
-              <h2 style="margin-top:.6rem">Conquistas</h2>
-              <ul class="ach">
-                <li><svg class="i" aria-hidden="true" style="color:var(--ok)"><use href="#i-check"/></svg>Primeira lição concluída</li>
-                <li><svg class="i" aria-hidden="true" style="color:var(--ok)"><use href="#i-check"/></svg>Primeira resposta na comunidade</li>
-                <li class="muted"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>A seguir: publicar o primeiro conteúdo</li>
-              </ul>
-            </section>
-            <section class="glass pad stack" aria-labelledby="h-conf">
-              <h2 id="h-conf">Meu conforto</h2>
-              <p class="muted">Seu jeito de ver a tela fica salvo neste dispositivo.</p>
-              <dl class="stack small" id="prefSummary" style="gap:.5rem"></dl>
-              <button type="button" class="btn primary" data-open-prefs aria-haspopup="dialog"><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg>Ajustar acessibilidade</button>
-              <div class="between wrap" style="margin-top:.6rem"><a href="#/cadastro" class="btn sm">Trocar de turma</a><a href="#/" class="btn sm">Sair</a></div>
-            </section>
+          <div class="row wrap">
+            <button type="button" class="btn primary" data-open-prefs aria-haspopup="dialog"><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg>Personalizar tela</button>
+            <a href="#/" class="btn">Sair</a>
           </div>
         </div>
       </section>
@@ -409,7 +305,7 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
 <div class="scrim" id="scrim"></div>
 <aside class="drawer glass" id="prefs" role="dialog" aria-modal="true" aria-labelledby="prefsTitle" tabindex="-1">
   <header>
-    <div><h2 id="prefsTitle">Personalizar tela</h2><p class="muted small">Mudanças valem na hora e ficam salvas.</p></div>
+    <div><h2 id="prefsTitle">Personalizar tela</h2></div>
     <button type="button" class="btn icon" id="prefsClose" aria-label="Fechar painel"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button>
   </header>
   <div class="body">
@@ -420,19 +316,18 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
 
     <fieldset class="group"><legend><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg>Cor de destaque</legend>
       <div class="swatches" id="swatches"></div>
-      <p class="hint small muted">Escolhemos automaticamente a cor do texto dos botões para manter a leitura.</p>
     </fieldset>
 
     <fieldset class="group"><legend><svg class="i" aria-hidden="true"><use href="#i-text"/></svg>Fonte</legend>
       <div class="stack" style="gap:.5rem" id="fonts"></div>
     </fieldset>
 
-    <fieldset class="group"><legend>Tamanho do texto <span class="value" id="v-size" style="margin-left:auto">100%</span></legend>
+    <fieldset class="group"><legend>Texto <span class="value" id="v-size" style="margin-left:auto">100%</span></legend>
       <label class="sr" for="r-size">Tamanho do texto</label>
       <input type="range" id="r-size" min="90" max="150" step="5" value="100">
     </fieldset>
 
-    <fieldset class="group"><legend>Espaço entre linhas</legend>
+    <fieldset class="group"><legend>Linhas</legend>
       <div class="seg" role="radiogroup" aria-label="Espaço entre linhas" data-seg="lh">
         <label><input type="radio" name="lh" value="1.45"><span>Compacto</span></label>
         <label><input type="radio" name="lh" value="1.6"><span>Normal</span></label>
@@ -440,7 +335,7 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
       </div>
     </fieldset>
 
-    <fieldset class="group"><legend>Espaço entre letras</legend>
+    <fieldset class="group"><legend>Letras</legend>
       <div class="seg" role="radiogroup" aria-label="Espaço entre letras" data-seg="ls">
         <label><input type="radio" name="ls" value="0"><span>Normal</span></label>
         <label><input type="radio" name="ls" value="0.03"><span>Médio</span></label>
@@ -448,7 +343,7 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
       </div>
     </fieldset>
 
-    <fieldset class="group"><legend>Largura do conteúdo</legend>
+    <fieldset class="group"><legend>Largura</legend>
       <div class="seg" role="radiogroup" aria-label="Largura do conteúdo" data-seg="measure">
         <label><input type="radio" name="measure" value="780"><span>Estreita</span></label>
         <label><input type="radio" name="measure" value="1120"><span>Média</span></label>
@@ -456,16 +351,16 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
       </div>
     </fieldset>
 
-    <fieldset class="group"><legend>Estímulos e foco</legend>
-      <label class="switch"><span class="t">Sem animações<small>Remove movimentos e transições.</small></span><input type="checkbox" data-pref="motionOff"><span class="track"></span></label>
-      <label class="switch"><span class="t">Sem transparência e desfoque<small>Fundos sólidos, mais estáveis para os olhos.</small></span><input type="checkbox" data-pref="glassOff"><span class="track"></span></label>
-      <label class="switch"><span class="t">Cores suaves<small>Reduz a intensidade das cores do fundo.</small></span><input type="checkbox" data-pref="soft"><span class="track"></span></label>
-      <label class="switch"><span class="t">Modo foco<small>Esconde o que não é essencial na tela.</small></span><input type="checkbox" data-pref="focus"><span class="track"></span></label>
+    <fieldset class="group"><legend>Conforto</legend>
+      <label class="switch"><span class="t">Sem animações</span><input type="checkbox" data-pref="motionOff"><span class="track"></span></label>
+      <label class="switch"><span class="t">Sem transparência</span><input type="checkbox" data-pref="glassOff"><span class="track"></span></label>
+      <label class="switch"><span class="t">Cores suaves</span><input type="checkbox" data-pref="soft"><span class="track"></span></label>
+      <label class="switch"><span class="t">Modo foco</span><input type="checkbox" data-pref="focus"><span class="track"></span></label>
     </fieldset>
 
-    <fieldset class="group"><legend>Leitura e toque</legend>
-      <label class="switch"><span class="t">Links sempre sublinhados</span><input type="checkbox" data-pref="underline"><span class="track"></span></label>
-      <label class="switch"><span class="t">Botões maiores<small>Áreas de toque mais fáceis de acertar.</small></span><input type="checkbox" data-pref="bigTouch"><span class="track"></span></label>
+    <fieldset class="group"><legend>Leitura</legend>
+      <label class="switch"><span class="t">Sublinhar links</span><input type="checkbox" data-pref="underline"><span class="track"></span></label>
+      <label class="switch"><span class="t">Botões grandes</span><input type="checkbox" data-pref="bigTouch"><span class="track"></span></label>
     </fieldset>
   </div>
   <footer>

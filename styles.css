@@ -464,3 +464,35 @@ html[data-glass="off"] .drawer.glass{background:var(--solid)}
 .compose{gap:.9rem}
 .land-nav .btn:not(.primary){background:transparent;border-color:transparent}
 .theme-card{background:transparent}
+
+/* ==========================================================================
+   Minimalismo: pouco texto, muito respiro, blocos visuais
+   ========================================================================== */
+.page{gap:2rem}
+.page>header{padding:0}
+h1{font-size:clamp(2.2rem,3vw + 1rem,3.2rem)}
+.hero{padding-block:4rem}
+.hero h1{font-size:clamp(2.8rem,5vw + 1rem,5rem);line-height:1.05}
+.hero p.lead{font-size:1.4rem;margin-top:1rem}
+.hero .cta{margin-top:2.5rem}
+.tile{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:1.2rem;padding:1.75rem;min-height:150px;text-decoration:none;color:var(--text)}
+.tile.link:hover{background:var(--glass-2)}
+.tile h3{font-size:1.35rem}
+.tile .meter{width:100%}
+.tile .ico{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 22%,transparent);color:var(--accent-ink)}
+.tile .ico .i{width:26px;height:26px}
+.big-n{font-size:3rem;font-weight:700;line-height:1}
+.big-n small{font-size:1.1rem;font-weight:400;color:var(--muted)}
+.band{padding-block:1.5rem}
+.band .grid{gap:1rem}
+.lesson{padding:1.1rem 1.4rem;font-size:1.1rem;border-color:transparent;background:var(--glass)}
+.lesson.lock{opacity:.55;border-style:solid}
+.lesson.now{background:var(--glass-2)}
+.resume h2{font-size:1.7rem}
+.kind{flex-direction:column;justify-content:center;min-height:110px;text-align:center}
+.kind input{position:absolute;opacity:0;inset:0}
+.kind .i{width:30px;height:30px;color:var(--accent-ink)}
+.tabs{align-self:flex-start}
+.post h3{font-size:1.2rem}
+.auth .glass{gap:1.5rem}
+.compose .c-lesson h3{font-size:1.3rem}
