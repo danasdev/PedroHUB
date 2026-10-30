@@ -70,11 +70,6 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
       <a href="#/perfil" data-nav="perfil"><svg class="i" aria-hidden="true"><use href="#i-user"/></svg><span>Meu perfil</span></a>
     </nav>
     <div class="spacer"></div>
-    <div class="distract glass pad" style="padding:1rem;border-radius:var(--r-sm)">
-      <p class="small muted">Turma</p>
-      <p style="font-weight:700">Iniciantes</p>
-      <p class="small muted" style="margin-top:.3rem">24 pessoas estudando no seu nível.</p>
-    </div>
     <button type="button" class="btn block" data-open-prefs aria-haspopup="dialog"><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg><span>Personalizar tela</span></button>
   </aside>
 
@@ -111,11 +106,6 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
               <a class="btn primary lg" href="#/cadastro">Criar conta grátis <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
               <a class="btn lg" href="#/inicio">Já tenho conta</a>
             </div>
-            <ul class="proof" aria-label="Diferenciais">
-              <li class="chip"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Sem pressão de tempo</li>
-              <li class="chip"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Sem respostas automáticas</li>
-              <li class="chip"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Interface 100% ajustável</li>
-            </ul>
           </div>
 
           <div class="compose" aria-hidden="true">
@@ -129,20 +119,10 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
               <div class="ring" style="--p:60"><svg viewBox="0 0 76 76"><circle class="bgc" cx="38" cy="38" r="32"/><circle class="fg" cx="38" cy="38" r="32"/></svg><b>60%</b></div>
               <span class="small muted">Nível 2</span>
             </div>
-            <div class="glass c-bars">
+            <div class="glass c-bars" style="grid-column:span 6">
               <span class="eyebrow">Seu ritmo</span>
               <div class="bars"><i style="height:30%"></i><i style="height:48%"></i><i style="height:40%"></i><i class="on" style="height:92%"></i><i style="height:62%"></i><i style="height:35%"></i><i style="height:25%"></i></div>
-            </div>
-            <div class="glass c-toggle stack" style="gap:.6rem">
-              <span class="eyebrow">Seu conforto</span>
-              <div class="between small"><span>Sem animações</span><span class="chip ok">Ligado</span></div>
-              <div class="between small"><span>Modo foco</span><span class="chip">Desligado</span></div>
-            </div>
-            <div class="glass c-slider stack" style="gap:.5rem">
-              <div class="between small"><span class="eyebrow">Tamanho do texto</span><span class="value">110%</span></div>
-              <div class="meter" style="height:14px"><i style="width:55%"></i></div>
-            </div>
-          </div>
+            </div></div>
         </div>
 
         <section class="band" aria-labelledby="h-feat">
@@ -216,24 +196,7 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
             <a class="btn primary lg" href="#/licao"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Continuar lição</a>
           </div>
 
-          <div class="grid g-main">
-            <div class="stack">
-              <section class="glass pad" aria-labelledby="h-hoje">
-                <h2 id="h-hoje">Tarefa de hoje</h2>
-                <ul class="today" style="margin-top:.6rem">
-                  <li><svg class="i" aria-hidden="true" style="color:var(--accent-ink);margin-top:.2rem"><use href="#i-play"/></svg><div><b>Terminar a lição de Links</b><p class="small muted">Vídeo de 6 min + 1 exercício</p></div></li>
-                  <li class="distract"><svg class="i" aria-hidden="true" style="color:var(--faint);margin-top:.2rem"><use href="#i-clock"/></svg><div><b>Opcional: responder uma dúvida</b><p class="small muted">Só se estiver com energia. Vale 15 XP.</p></div></li>
-                </ul>
-              </section>
-              <section class="glass pad distract" aria-labelledby="h-sem">
-                <h2 id="h-sem">Sua semana</h2>
-                <p class="small muted">Sem sequência obrigatória. Dias de descanso também contam.</p>
-                <div class="week" role="img" aria-label="Estudou na segunda, quarta e quinta">
-                  <span><i class="on"></i>S</span><span><i></i>T</span><span><i class="on"></i>Q</span><span><i class="on"></i>Q</span><span><i></i>S</span><span><i></i>S</span><span><i></i>D</span>
-                </div>
-              </section>
-            </div>
-            <div class="stack">
+          <div class="grid g2">
               <section class="glass pad stack" aria-labelledby="h-xp">
                 <div class="between"><h2 id="h-xp">Nível 2</h2><span class="muted small">120 de 200 XP</span></div>
                 <div class="meter" role="img" aria-label="120 de 200 pontos de experiência"><i style="width:60%"></i></div>
@@ -244,7 +207,6 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
                 <p class="muted">1 pergunta esperando resposta.</p>
                 <a class="btn sm" href="#/comunidade">Abrir a comunidade</a>
               </section>
-            </div>
           </div>
         </div>
       </section>
@@ -269,8 +231,8 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
 
           <h2 class="distract" style="padding:0 .25rem">Outras trilhas</h2>
           <div class="grid g3 distract">
-            <article class="glass pad track-card"><span class="chip">Iniciante</span><h3>Lógica de programação</h3><p class="muted small">Pensar em passos: sequência, decisão e repetição. 5 lições.</p><div class="meter"><i style="width:0"></i></div><button type="button" class="btn sm" data-toast="Trilha adicionada à sua lista.">Começar</button></article>
-            <article class="glass pad track-card"><span class="chip">Iniciante</span><h3>CSS básico</h3><p class="muted small">Cores, fontes e espaçamento. 5 lições.</p><div class="meter"><i style="width:0"></i></div><button type="button" class="btn sm" data-toast="Trilha adicionada à sua lista.">Começar</button></article>
+            <article class="glass pad track-card"><h3>Lógica de programação</h3><p class="muted small">Pensar em passos: sequência, decisão e repetição. 5 lições.</p><div class="meter"><i style="width:0"></i></div><button type="button" class="btn sm" data-toast="Trilha adicionada à sua lista.">Começar</button></article>
+            <article class="glass pad track-card"><h3>CSS básico</h3><p class="muted small">Cores, fontes e espaçamento. 5 lições.</p><div class="meter"><i style="width:0"></i></div><button type="button" class="btn sm" data-toast="Trilha adicionada à sua lista.">Começar</button></article>
             <article class="glass pad track-card locked"><span class="chip"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Bloqueada</span><h3>JavaScript: primeiros passos</h3><p class="muted small">Abre depois de HTML básico.</p><div class="meter"><i style="width:0"></i></div></article>
           </div>
         </div>
@@ -343,7 +305,7 @@ d.dataset.theme=p.theme||'lavanda';if(p.motionOff)d.dataset.motion='off';}catch(
           <header>
             <div class="between wrap"><div><p class="eyebrow">Turma Iniciantes</p><h1>Comunidade</h1></div>
               <div class="row wrap"><button type="button" class="btn" id="btnAsk" aria-expanded="false" aria-controls="askBox"><svg class="i" aria-hidden="true"><use href="#i-msg"/></svg>Fazer uma pergunta</button><a class="btn primary" href="#/publicar"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Publicar conteúdo</a></div></div>
-            <p class="review" style="margin-top:.8rem">Aqui quem responde são pessoas da turma. Não há respostas automáticas.</p>
+            <p class="muted" style="margin-top:.4rem">Aqui quem responde são pessoas da turma. Não há respostas automáticas.</p>
           </header>
 
           <form class="glass ask" id="askBox" hidden novalidate>

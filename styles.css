@@ -429,3 +429,38 @@ html[data-glass="off"] .drawer.glass{background:var(--solid)}
 /* Ajustes finos */
 .topbar .btn.icon{margin-left:auto}
 .player .bar select{min-width:5.2rem}
+
+/* ==========================================================================
+   Menos ruído visual: fundo mais quieto, vidro mais plano, menos bordas
+   ========================================================================== */
+.bg i{opacity:.32}
+.bg i:nth-child(2){opacity:.2}
+.bg i:nth-child(3){opacity:.16}
+[data-theme="calmo"] .bg i,[data-theme="suave"] .bg i{opacity:.45}
+.glass{
+  background:var(--glass);
+  box-shadow:inset 0 1px 0 var(--shine);
+  border-color:color-mix(in srgb,var(--stroke) 70%,transparent);
+}
+[data-theme="calmo"] .glass,[data-theme="suave"] .glass{box-shadow:0 1px 2px rgba(30,45,90,.06)}
+[data-theme="contraste"] .glass{box-shadow:none;border-color:#fff}
+.btn.primary{box-shadow:none}
+.eyebrow{letter-spacing:.08em;font-weight:700;font-size:.74rem;color:var(--faint)}
+.hero h1{letter-spacing:calc(var(--ls) - .02em)}
+.chip{background:transparent;border-color:transparent;padding-inline:.2rem;color:var(--muted)}
+.chip.ok,.chip.warn,.chip.acc{border-color:transparent}
+[data-theme="contraste"] .chip{border:1px solid #fff;padding-inline:.7rem}
+.nav a[aria-current="page"]{border-color:transparent}
+.nav a:hover{background:transparent}
+.topbar{background:var(--glass)}
+.search input{background:color-mix(in srgb,var(--text) 6%,transparent)}
+.page{gap:1.25rem}
+.pad{padding:1.5rem}
+.lesson{background:transparent}
+.lesson.now{border-width:1.5px}
+.post{padding:1.1rem 1.4rem}
+.band{padding-block:3rem}
+.hero{padding-bottom:3rem}
+.compose{gap:.9rem}
+.land-nav .btn:not(.primary){background:transparent;border-color:transparent}
+.theme-card{background:transparent}
