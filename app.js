@@ -285,8 +285,8 @@
      5. Comunidade: feed, abas, pergunta e publicação
      ====================================================================== */
   var posts = [
-    { kind: 'duvida', t: 'Qual a diferença entre h1 e h2?', topic: 'HTML', by: 'Bruno', meta: '2 respostas', state: 'ok' },
-    { kind: 'duvida', t: 'Minha imagem não aparece. O que eu confiro?', topic: 'HTML', by: 'Carla', meta: '1 resposta', state: 'ok' },
+    { kind: 'duvida', t: 'Qual a diferença entre h1 e h2?', topic: 'HTML', by: 'Bruno', n: 2, meta: '', state: 'ok' },
+    { kind: 'duvida', t: 'Minha imagem não aparece. O que eu confiro?', topic: 'HTML', by: 'Carla', n: 1, meta: '', state: 'ok' },
     { kind: 'duvida', t: 'Como eu centralizo um texto?', topic: 'CSS', by: 'Davi', meta: 'Sem resposta ainda · responda e ganhe XP', state: 'wait' },
     { kind: 'aula', t: 'Como criar um link, passo a passo', topic: 'HTML básico', by: 'Bruno', meta: 'Vídeo · 6 min · com legenda', state: 'ok' },
     { kind: 'aula', t: 'O que é uma variável? (com exemplos do dia a dia)', topic: 'Lógica', by: 'Marina', meta: 'Vídeo · 8 min · com transcrição', state: 'ok' },
@@ -308,12 +308,11 @@
       return;
     }
     box.innerHTML = list.map(function (p) {
-      var badge = p.state === 'wait'
-        ? '<span class="chip warn"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Sem resposta</span>'
-        : p.state === 'rev'
-          ? '<span class="chip acc"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Em revisão</span>'
-          : '<span class="chip ok"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>' + (p.kind === 'duvida' ? 'Respondida' : 'Publicado') + '</span>';
-      return '<article class="glass post"><div class="between wrap"><span class="chip"><svg class="i" aria-hidden="true"><use href="' + ICON[p.kind] + '"/></svg>' + esc(p.topic) + '</span>' + badge + '</div>' + '<h3>' + esc(p.t) + '</h3></article>';
+      var st = p.state === 'wait' ? ['warn', '#i-clock', 'Sem resposta'] : p.state === 'rev' ? ['acc', '#i-clock', 'Em revisão'] : ['ok', '#i-check', p.kind === 'duvida' ? 'Respondida' : 'Publicado'];
+      return '<article class="glass post"><span class="avatar sm" aria-hidden="true">' + esc(p.by.charAt(0)) + '</span>' +
+        '<div class="post-body"><h3>' + esc(p.t) + '</h3><p class="post-meta"><span class="tag">' + esc(p.topic) + '</span>' +
+        (p.n ? '<span><svg class="i" aria-hidden="true"><use href="#i-msg"/></svg>' + p.n + '<span class="sr"> respostas</span></span>' : '') + '</p></div>' +
+        '<span class="state ' + st[0] + '" title="' + st[2] + '"><svg class="i" aria-hidden="true"><use href="' + st[1] + '"/></svg><span class="sr">' + st[2] + '</span></span></article>';
     }).join('');
   }
   var tabs = $$('[role=tab]');
