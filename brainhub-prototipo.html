@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BrainHub – Protótipo de média fidelidade</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#F3F5F7;--surface:#FFFFFF;--ink:#16212C;--muted:#3A4652;--line:#C5CED8;--field:#6B7885;--accent:#1D4F91;--accent-soft:#E3ECF7;--ok:#1E6B45}
+*{box-sizing:border-box}
+body{margin:0;background:#DDE3EA;color:var(--ink);font-family:'Atkinson Hyperlegible',Verdana,sans-serif;font-size:16px;line-height:1.4}
+h1,h2,p,ol,fieldset{margin:0;padding:0}
+a{color:var(--accent)}
+
+/* Barra do protótipo (fora das telas) */
+.toolbar{position:sticky;top:0;z-index:5;background:var(--ink);color:#FFFFFF;padding:12px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.toolbar .name{font-size:18px;font-weight:700;margin-right:auto}
+.toolbar .where{font-size:15px}
+.toolbar button{min-height:44px;padding:0 16px;border-radius:8px;border:2px solid #FFFFFF;background:transparent;color:#FFFFFF;font:inherit;font-weight:700;cursor:pointer}
+.toolbar button[aria-pressed="true"]{background:#FFFFFF;color:var(--ink)}
+.intro{max-width:1100px;margin:0 auto;padding:20px 16px 0;font-size:16px;color:var(--ink)}
+.intro strong{font-weight:700}
+
+/* Disposição das telas */
+.stage{display:flex;flex-wrap:wrap;justify-content:center;gap:40px 32px;padding:24px 16px 48px}
+.frame{margin:0;display:flex;flex-direction:column;gap:10px;max-width:100%}
+.frame figcaption{font-size:16px;font-weight:700}
+body.single .frame{display:none}
+body.single .frame.active{display:flex}
+body.overview .only-single{display:none}
+body.single .only-overview{display:none}
+
+/* Tela de celular */
+.phone{width:390px;max-width:100%;height:844px;background:var(--ground);border:2px solid var(--ink);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.top{background:var(--surface);border-bottom:2px solid var(--line);padding:20px 24px 16px;display:flex;flex-direction:column;gap:6px}
+.top.slim{flex-direction:row;align-items:center;padding:12px 16px}
+.top h1{font-size:26px;line-height:1.2}
+.sub{color:var(--muted)}
+.right{margin-left:auto;color:var(--muted)}
+.body{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:16px;overflow:auto}
+.end{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card.focus{border:2px solid var(--accent)}
+.card.wait{border:2px solid #8A5A00}
+.card.locked{background:#E9EDF1;border:1px dashed var(--field)}
+.row{display:flex;align-items:center;gap:12px}
+.between{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.tag{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.title{font-size:18px;font-weight:700}
+.small{font-size:15px;color:var(--muted)}
+.okc{color:var(--ok);font-weight:700}
+.acc{color:var(--accent);font-weight:700}
+.warn{color:#6B4500;font-weight:700}
+.note{background:var(--accent-soft);border-radius:12px;padding:12px 14px;font-size:15px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 12px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#FFFFFF;font:inherit;font-size:18px;font-weight:700;text-decoration:none;text-align:center;cursor:pointer}
+.btn.sec{background:var(--surface);color:var(--accent)}
+.link{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+.meter{height:12px;background:#DDE3EA;border-radius:6px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--accent)}
+.meter.xp i{background:var(--ok)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:700}
+.field input,.field select,.field textarea{min-height:48px;padding:0 12px;font:inherit;color:var(--ink);background:var(--surface);border:2px solid var(--field);border-radius:8px;width:100%}
+.field textarea{padding:12px;resize:none}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+fieldset.card{gap:2px}
+legend{padding:0 6px;font-weight:700}
+.check{display:flex;align-items:center;gap:12px;min-height:44px}
+.check input{width:22px;height:22px;accent-color:var(--accent)}
+.choice{display:flex;align-items:center;gap:14px;min-height:76px;padding:12px 16px;background:var(--surface);border:2px solid var(--line);border-radius:12px}
+.choice:has(input:checked){border-color:var(--accent)}
+.choice input{width:22px;height:22px;accent-color:var(--accent)}
+.choice span span{display:block}
+.ic{width:24px;height:24px;flex:none;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.ic.ok{stroke:var(--ok)}.ic.go{stroke:var(--accent)}.ic.lock{stroke:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.steps i{height:8px;border-radius:4px;background:var(--line)}
+.steps i.on{background:var(--accent)}
+pre{margin:0;padding:12px;background:var(--ink);color:#FFFFFF;border-radius:8px;font-family:'Courier New',monospace;font-size:14px;white-space:pre-wrap}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.opts .btn{min-height:48px;font-size:17px}
+.opts .btn[aria-pressed="true"]{background:var(--accent);color:#FFFFFF}
+.fb{border-radius:8px;padding:12px}
+.fb.good{background:#E2F1E8;border:1px solid var(--ok);color:#14472E}
+.fb.bad{background:#FFF3DC;border:1px solid #8A5A00;color:#5C3C00}
+.list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.list .card{padding:14px 16px}
+.nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--surface);border-top:2px solid var(--line)}
+.nav a{min-height:60px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:15px;color:var(--muted);border-top:4px solid transparent}
+.nav a[aria-current="page"]{color:var(--ink);font-weight:700;border-top-color:var(--accent)}
+.brand{display:flex;align-items:center;gap:12px;font-size:28px;font-weight:700}
+[hidden]{display:none!important}
+
+@media print{
+  body{background:#FFFFFF}
+  .toolbar,.intro{display:none}
+  body.single .frame{display:flex}
+  .stage{gap:24px}
+  .frame{break-inside:avoid}
+}
+</style>
+</head>
+<body class="overview">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M7 12l3.5 3.5L17 9"></path></symbol>
+<symbol id="i-go" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4z"></path></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></symbol>
+<symbol id="i-next" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="4 4"></circle></symbol>
+</svg>
+
+<div class="toolbar">
+<div class="name">BrainHub · Protótipo de média fidelidade</div>
+<div class="where only-single" id="where" aria-live="polite"></div>
+<button type="button" class="only-single" id="prev">Tela anterior</button>
+<button type="button" class="only-single" id="next">Próxima tela</button>
+<button type="button" id="modeAll" aria-pressed="true">Ver todas as telas</button>
+<button type="button" id="modeOne" aria-pressed="false">Navegar pelo protótipo</button>
+</div>
+
+<p class="intro only-overview"><strong>Fluxo básico de uso:</strong> Boas-vindas → Cadastro → Nível e turma → Início → Trilha → Lição e exercício → Comunidade → Publicar conteúdo → Perfil. Clique em qualquer botão de uma tela para navegar a partir dela.</p>
+
+<main class="stage">
+
+<!-- 1 -->
+<figure class="frame" id="main" data-title="Boas-vindas">
+<figcaption>1 · Boas-vindas</figcaption>
+<div class="phone">
+<div class="body" style="padding-top:28px;gap:14px">
+<div class="brand">
+<svg aria-hidden="true" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1D4F91" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="40" height="40" rx="10"></rect><path d="M14 32V16l10 10 10-10v16"></path></svg>
+BrainHub
+</div>
+<div>
+<h1 style="font-size:32px;line-height:1.2">Estude tecnologia no seu ritmo.</h1>
+<p class="sub" style="font-size:18px;margin-top:12px">Uma plataforma de estudos pensada para pessoas com TEA e TDAH.</p>
+</div>
+<div class="card"><div class="title">Passos curtos</div><div class="sub">Uma coisa de cada vez, com instruções claras.</div></div>
+<div class="card"><div class="title">Turmas por nível</div><div class="sub">Você estuda com quem está no mesmo ponto que você.</div></div>
+<div class="card"><div class="title">Feito por alunos</div><div class="sub">Conteúdos e respostas escritos pela própria turma.</div></div>
+<div class="end">
+<a class="btn" href="#cadastro" data-go="cadastro">Criar conta</a>
+<a class="btn sec" href="#inicio" data-go="inicio">Já tenho conta</a>
+<a class="link" style="justify-content:center" href="#perfil" data-go="perfil">Ajustar acessibilidade da tela</a>
+</div>
+</div>
+</div>
+</figure>
+
+<!-- 2 -->
+<figure class="frame" id="cadastro" data-title="Cadastro">
+<figcaption>2 · Cadastro</figcaption>
+<div class="phone">
+<header class="top slim"><a class="link" href="#main" data-go="main">Voltar</a><div class="right">Passo 1 de 2</div></header>
+<div class="body">
+<h1 style="font-size:28px">Criar conta</h1>
+<div class="field"><label for="cad-nome">Nome</label><input id="cad-nome" type="text" placeholder="Como quer ser chamado"></div>
+<div class="field"><label for="cad-email">E-mail</label><input id="cad-email" type="email" placeholder="nome@exemplo.com"></div>
+<div class="field"><label for="cad-senha">Senha</label><input id="cad-senha" type="password"><div class="small">Use pelo menos 8 caracteres.</div></div>
+<fieldset class="card">
+<legend>Como você prefere ver a tela?</legend>
+<label class="check"><input type="checkbox">Alto contraste</label>
+<label class="check"><input type="checkbox">Texto ampliado</label>
+<label class="check"><input type="checkbox" checked>Poucos estímulos (sem animações)</label>
+<div class="small">Você pode mudar isso depois, no Perfil.</div>
+</fieldset>
+<div class="end"><a class="btn" href="#nivel" data-go="nivel">Continuar</a></div>
+</div>
+</div>
+</figure>
+
+<!-- 3 -->
+<figure class="frame" id="nivel" data-title="Nível e turma">
+<figcaption>3 · Nível e turma</figcaption>
+<div class="phone">
+<header class="top slim"><a class="link" href="#cadastro" data-go="cadastro">Voltar</a><div class="right">Passo 2 de 2</div></header>
+<div class="body">
+<div>
+<h1 style="font-size:28px;line-height:1.2">Qual é o seu nível em tecnologia?</h1>
+<p class="sub" style="margin-top:8px">Escolha uma opção. Não existe resposta errada.</p>
+</div>
+<fieldset style="border:0;display:flex;flex-direction:column;gap:12px">
+<legend style="position:absolute;width:1px;height:1px;overflow:hidden">Nível de conhecimento</legend>
+<label class="choice"><input type="radio" name="nivel" checked><span><span class="title">Iniciante</span><span class="sub">Nunca programei.</span></span></label>
+<label class="choice"><input type="radio" name="nivel"><span><span class="title">Intermediário</span><span class="sub">Já fiz páginas ou programas simples.</span></span></label>
+<label class="choice"><input type="radio" name="nivel"><span><span class="title">Avançado</span><span class="sub">Já desenvolvi projetos completos.</span></span></label>
+</fieldset>
+<div class="note" style="font-size:16px">Você entra em uma turma com pessoas do mesmo nível. Dá para trocar de turma depois.</div>
+<div class="end"><a class="btn" href="#inicio" data-go="inicio">Entrar na turma</a></div>
+</div>
+</div>
+</figure>
+
+<!-- 4 -->
+<figure class="frame" id="inicio" data-title="Início">
+<figcaption>4 · Início</figcaption>
+<div class="phone">
+<header class="top"><h1>Olá, Ana</h1><div class="sub">Turma: Iniciantes</div></header>
+<div class="body">
+<section class="card focus" style="gap:12px">
+<div class="tag">Continue de onde parou</div>
+<div><div class="title" style="font-size:20px">Trilha: HTML básico</div><div class="sub">Lição 3 de 6 · Links</div></div>
+<div class="meter" role="img" aria-label="Progresso da trilha: 2 de 6 lições concluídas"><i style="width:33%"></i></div>
+<a class="btn" href="#licao" data-go="licao">Continuar lição</a>
+</section>
+<section class="card"><div class="title">Tarefa de hoje</div><div class="sub">Uma tarefa só: terminar a lição de Links. Leva cerca de 10 minutos.</div></section>
+<section class="card">
+<div class="between"><div class="title">Nível 2</div><div class="sub">120 de 200 XP</div></div>
+<div class="meter xp" role="img" aria-label="120 de 200 pontos de experiência"><i style="width:60%"></i></div>
+<a class="link" href="#perfil" data-go="perfil">Ver meu progresso</a>
+</section>
+<section class="card"><div class="title">Dúvidas da turma</div><div class="sub">1 pergunta esperando resposta.</div><a class="link" href="#comunidade" data-go="comunidade">Abrir a comunidade</a></section>
+</div>
+<nav class="nav" aria-label="Navegação principal" data-active="inicio"></nav>
+</div>
+</figure>
+
+<!-- 5 -->
+<figure class="frame" id="trilha" data-title="Trilha">
+<figcaption>5 · Trilha</figcaption>
+<div class="phone">
+<header class="top" style="gap:10px"><h1>Trilha: HTML básico</h1><div class="sub">2 de 6 lições concluídas</div><div class="meter" role="img" aria-label="Progresso da trilha: 2 de 6 lições concluídas"><i style="width:33%"></i></div></header>
+<div class="body">
+<ol class="list">
+<li class="card"><div class="row"><svg class="ic ok" aria-hidden="true"><use href="#i-ok"></use></svg><div><div class="title" style="font-size:17px">1. Estrutura da página</div><div class="okc" style="font-size:15px">Concluída</div></div></div></li>
+<li class="card"><div class="row"><svg class="ic ok" aria-hidden="true"><use href="#i-ok"></use></svg><div><div class="title" style="font-size:17px">2. Títulos e parágrafos</div><div class="okc" style="font-size:15px">Concluída</div></div></div></li>
+<li class="card focus" style="gap:10px"><div class="row"><svg class="ic go" aria-hidden="true"><use href="#i-go"></use></svg><div><div class="title" style="font-size:17px">3. Links</div><div class="acc" style="font-size:15px">Em andamento · passo 2 de 4</div></div></div><a class="btn" style="min-height:48px;font-size:17px" href="#licao" data-go="licao">Continuar</a></li>
+<li class="card locked"><div class="row"><svg class="ic lock" aria-hidden="true"><use href="#i-lock"></use></svg><div><div class="title" style="font-size:17px">4. Imagens</div><div class="small">Abre depois da lição 3</div></div></div></li>
+<li class="card locked"><div class="row"><svg class="ic lock" aria-hidden="true"><use href="#i-lock"></use></svg><div><div class="title" style="font-size:17px">5. Atributos</div><div class="small">Abre depois da lição 4</div></div></div></li>
+<li class="card locked"><div class="row"><svg class="ic lock" aria-hidden="true"><use href="#i-lock"></use></svg><div><div class="title" style="font-size:17px">6. Estilos com CSS</div><div class="small">Abre depois da lição 5</div></div></div></li>
+</ol>
+</div>
+<nav class="nav" aria-label="Navegação principal" data-active="trilha"></nav>
+</div>
+</figure>
+
+<!-- 6 -->
+<figure class="frame" id="licao" data-title="Lição e exercício">
+<figcaption>6 · Lição e exercício</figcaption>
+<div class="phone">
+<header class="top" style="padding:12px 16px;gap:8px">
+<div class="row"><a class="link" href="#trilha" data-go="trilha">Voltar à trilha</a><div class="right">Passo 2 de 4</div></div>
+<div class="steps" role="img" aria-label="Passo 2 de 4"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+</header>
+<div class="body">
+<h1 style="font-size:24px">Lição 3 · Links</h1>
+<section class="card" style="gap:10px">
+<div class="tag">Leia</div>
+<p style="font-size:17px">Um link leva a pessoa para outra página.</p>
+<p style="font-size:17px">Ele é feito com a tag a. O endereço fica no atributo href.</p>
+<pre>&lt;a href="contato.html"&gt;Contato&lt;/a&gt;</pre>
+</section>
+<section class="card focus" style="gap:12px">
+<div class="tag">Agora é com você</div>
+<div class="title" style="font-size:17px">Qual atributo guarda o endereço do link?</div>
+<div class="opts">
+<button type="button" class="btn sec" data-ans="src" aria-pressed="false">src</button>
+<button type="button" class="btn sec" data-ans="href" aria-pressed="false">href</button>
+<button type="button" class="btn sec" data-ans="alt" aria-pressed="false">alt</button>
+</div>
+<div class="small" id="fb-none">Toque em uma opção. Você pode tentar quantas vezes quiser.</div>
+<div class="fb good" id="fb-good" role="status" hidden><strong>Isso mesmo.</strong> O href guarda o endereço. Você ganhou 10 XP.</div>
+<div class="fb bad" id="fb-bad" role="status" hidden><strong>Ainda não.</strong> Você marcou <span id="fb-pick"></span>. Dica: olhe o exemplo acima e tente de novo.</div>
+</section>
+<div class="end">
+<a class="btn" href="#trilha" data-go="trilha">Próximo passo</a>
+<a class="btn sec" style="min-height:48px;font-size:16px" href="#comunidade" data-go="comunidade">Tenho uma dúvida: perguntar à turma</a>
+</div>
+</div>
+</div>
+</figure>
+
+<!-- 7 -->
+<figure class="frame" id="comunidade" data-title="Comunidade">
+<figcaption>7 · Comunidade</figcaption>
+<div class="phone">
+<header class="top"><h1>Comunidade</h1><div class="sub">Turma: Iniciantes</div></header>
+<div class="body" style="padding-top:16px;gap:12px">
+<div class="note">Aqui quem responde são pessoas da turma. Não há respostas automáticas.</div>
+<button type="button" class="btn sec" style="min-height:48px;font-size:17px">Fazer uma pergunta</button>
+<h2 style="font-size:18px">Perguntas da turma</h2>
+<div class="card" style="padding:12px 14px;gap:4px"><div style="font-weight:700">Qual a diferença entre h1 e h2?</div><div class="okc" style="font-size:14px">Respondida · 2 respostas</div></div>
+<div class="card" style="padding:12px 14px;gap:4px"><div style="font-weight:700">Minha imagem não aparece. O que eu confiro?</div><div class="small" style="font-size:14px">1 resposta</div></div>
+<div class="card wait" style="padding:12px 14px;gap:4px"><div style="font-weight:700">Como eu centralizo um texto?</div><div class="warn" style="font-size:14px">Sem resposta ainda · responda e ganhe XP</div></div>
+<h2 style="font-size:18px">Conteúdos feitos pela turma</h2>
+<div class="card" style="padding:12px 14px;gap:4px"><div style="font-weight:700">Resumo: tags que não precisam fechar</div><div class="small" style="font-size:14px">Resumo · por Bruno · Trilha HTML básico</div></div>
+<a class="btn" style="min-height:48px;font-size:17px" href="#publicar" data-go="publicar">Publicar um conteúdo</a>
+</div>
+<nav class="nav" aria-label="Navegação principal" data-active="comunidade"></nav>
+</div>
+</figure>
+
+<!-- 8 -->
+<figure class="frame" id="publicar" data-title="Publicar conteúdo">
+<figcaption>8 · Publicar conteúdo</figcaption>
+<div class="phone">
+<header class="top slim"><a class="link" href="#comunidade" data-go="comunidade">Voltar</a></header>
+<div class="body">
+<div>
+<h1 style="font-size:26px">Publicar um conteúdo</h1>
+<p class="sub" style="margin-top:6px">Explique do seu jeito. A turma aprende com você.</p>
+</div>
+<div class="field"><label for="pub-titulo">Título</label><input id="pub-titulo" type="text" placeholder="Ex.: Como criar um link"></div>
+<div class="two">
+<div class="field"><label for="pub-tipo">Tipo</label><select id="pub-tipo"><option>Resumo</option><option>Exercício</option><option>Dica</option></select></div>
+<div class="field"><label for="pub-trilha">Trilha</label><select id="pub-trilha"><option>HTML básico</option><option>CSS básico</option></select></div>
+</div>
+<div class="field"><label for="pub-texto">Conteúdo</label><textarea id="pub-texto" rows="7" placeholder="Escreva aqui a sua explicação."></textarea><div class="small" style="font-size:14px">Use frases curtas. Um assunto por publicação.</div></div>
+<div class="note">Seu conteúdo passa por revisão antes de aparecer para a turma. Ao ser aprovado, você ganha 20 XP.</div>
+<div class="end"><a class="btn" href="#comunidade" data-go="comunidade">Enviar para revisão</a></div>
+</div>
+</div>
+</figure>
+
+<!-- 9 -->
+<figure class="frame" id="perfil" data-title="Perfil e progresso">
+<figcaption>9 · Perfil e progresso</figcaption>
+<div class="phone">
+<header class="top"><h1>Perfil e progresso</h1><div class="sub">Ana · Turma: Iniciantes</div></header>
+<div class="body" style="padding-top:16px;gap:14px">
+<section class="card" style="gap:10px">
+<div class="between"><h2 style="font-size:20px">Nível 2</h2><div class="sub">120 de 200 XP</div></div>
+<div class="meter xp" role="img" aria-label="120 de 200 pontos de experiência"><i style="width:60%"></i></div>
+<div class="small">Faltam 80 XP para o nível 3. Lições concluídas: 2 de 6.</div>
+</section>
+<section class="card" style="gap:10px">
+<h2 style="font-size:18px">Conquistas</h2>
+<div class="row"><svg class="ic ok" aria-hidden="true"><use href="#i-ok"></use></svg>Primeira lição concluída</div>
+<div class="row"><svg class="ic ok" aria-hidden="true"><use href="#i-ok"></use></svg>Primeira resposta na comunidade</div>
+<div class="row sub"><svg class="ic lock" aria-hidden="true"><use href="#i-next"></use></svg>A seguir: publicar o primeiro conteúdo</div>
+</section>
+<fieldset class="card">
+<legend style="font-size:18px">Acessibilidade</legend>
+<label class="check"><input type="checkbox">Alto contraste</label>
+<label class="check"><input type="checkbox">Texto ampliado</label>
+<label class="check"><input type="checkbox" checked>Poucos estímulos (sem animações)</label>
+</fieldset>
+<div class="between" style="align-items:center"><a class="link" href="#nivel" data-go="nivel">Trocar de turma</a><a class="link" href="#main" data-go="main">Sair</a></div>
+</div>
+<nav class="nav" aria-label="Navegação principal" data-active="perfil"></nav>
+</div>
+</figure>
+
+</main>
+
+<script>
+(function () {
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.frame'));
+  var ids = frames.map(function (f) { return f.id; });
+  var current = 0;
+  var where = document.getElementById('where');
+  var btnAll = document.getElementById('modeAll');
+  var btnOne = document.getElementById('modeOne');
+
+  // Barra de navegação inferior, igual em todas as telas que a usam
+  var tabs = [['inicio', 'Início'], ['trilha', 'Trilhas'], ['comunidade', 'Comunidade'], ['perfil', 'Perfil']];
+  document.querySelectorAll('.nav').forEach(function (nav) {
+    tabs.forEach(function (t) {
+      var a = document.createElement('a');
+      a.href = '#' + t[0];
+      a.setAttribute('data-go', t[0]);
+      a.textContent = t[1];
+      if (nav.getAttribute('data-active') === t[0]) a.setAttribute('aria-current', 'page');
+      nav.appendChild(a);
+    });
+  });
+
+  function setMode(single) {
+    document.body.className = single ? 'single' : 'overview';
+    btnAll.setAttribute('aria-pressed', String(!single));
+    btnOne.setAttribute('aria-pressed', String(single));
+    if (single) show(current);
+  }
+
+  function show(i) {
+    current = (i + frames.length) % frames.length;
+    frames.forEach(function (f, n) { f.classList.toggle('active', n === current); });
+    where.textContent = 'Tela ' + (current + 1) + ' de ' + frames.length + ' · ' + frames[current].getAttribute('data-title');
+    window.scrollTo(0, 0);
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-go]');
+    if (!link) return;
+    e.preventDefault();
+    current = ids.indexOf(link.getAttribute('data-go'));
+    setMode(true);
+  });
+
+  btnAll.addEventListener('click', function () { setMode(false); });
+  btnOne.addEventListener('click', function () { setMode(true); });
+  document.getElementById('prev').addEventListener('click', function () { show(current - 1); });
+  document.getElementById('next').addEventListener('click', function () { show(current + 1); });
+
+  // Exercício da lição
+  var answers = document.querySelectorAll('[data-ans]');
+  answers.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var pick = b.getAttribute('data-ans');
+      answers.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      document.getElementById('fb-none').hidden = true;
+      document.getElementById('fb-good').hidden = pick !== 'href';
+      document.getElementById('fb-bad').hidden = pick === 'href';
+      document.getElementById('fb-pick').textContent = pick;
+    });
+  });
+})();
+</script>
+</body>
+</html>

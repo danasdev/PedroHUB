@@ -1,0 +1,7 @@
+{
+  "name": "brainhub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BrainHub: comunidade de estudos acessível (site estático)",
+  "scripts": { "dev": "npx serve ." }
+}
